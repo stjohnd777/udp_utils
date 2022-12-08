@@ -1,0 +1,57 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"test/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "Serializer_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T_UdpProducerConsumer_TempateFunctions_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T_UdpRequestReply_TemplateFunction_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T-RequestReply-UdpUtilsSync-TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "T2T_UdpRequestReplyAsync_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "Hello_TEST::@36f028580bb02cc8272a"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "ALL_BUILD::@36f028580bb02cc8272a",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "test",
+		"source" : "test"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

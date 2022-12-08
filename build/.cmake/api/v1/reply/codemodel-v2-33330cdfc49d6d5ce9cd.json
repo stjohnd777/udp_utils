@@ -1,0 +1,1224 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"build" : "net",
+					"jsonFile" : "directory-net-Debug-aaef8b16b4d54e37f78f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "net",
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-Debug-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "main",
+					"jsonFile" : "directory-main-Debug-72090c4a4cf973f97e42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "main",
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lm_upd",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mains",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-6f533f5614419a932587.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-ALL_BUILD-Debug-3ed24e9eac7ff86b3609.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ALL_BUILD::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ALL_BUILD-Debug-733f2d23f2b2e3481406.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ALL_BUILD::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-ALL_BUILD-Debug-a7439651f879281e72b9.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Hello_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Hello_TEST-Debug-80482d2c09bddc9b7a76.json",
+					"name" : "Hello_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Serializer_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Serializer_TEST-Debug-5b2b728eadd2022d117f.json",
+					"name" : "Serializer_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T-RequestReply-UdpUtilsSync-TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T-RequestReply-UdpUtilsSync-TEST-Debug-654a73df6f97b668de87.json",
+					"name" : "T2T-RequestReply-UdpUtilsSync-TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_TempateFunctions_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_TempateFunctions_TEST-Debug-ec12f7cc4cb67646d72b.json",
+					"name" : "T2T_UdpProducerConsumer_TempateFunctions_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST-Debug-186ce2b5c1fb5be173b3.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST-Debug-db9a9218c027fdb3767d.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReplyAsync_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReplyAsync_TEST-Debug-e5ca784d856c42a25691.json",
+					"name" : "T2T_UdpRequestReplyAsync_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReply_TemplateFunction_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReply_TemplateFunction_TEST-Debug-3ea45d6bed8281245538.json",
+					"name" : "T2T_UdpRequestReply_TemplateFunction_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-6797a7f79746b0a00929.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client-Debug-2da911945fe01886b8d6.json",
+					"name" : "client",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client_struct-Debug-423afac534d132700cca.json",
+					"name" : "client_struct",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "consumer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-consumer-Debug-4dffde02ccb8ab2fbb2f.json",
+					"name" : "consumer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "net::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-net-Debug-f1aedb2df6365ff61de8.json",
+					"name" : "net",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "producer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-producer-Debug-92990fd09907e87bac37.json",
+					"name" : "producer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server-Debug-554e0902292292be1429.json",
+					"name" : "server",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server_struct-Debug-a69830559d7541c2ec58.json",
+					"name" : "server_struct",
+					"projectIndex" : 3
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"build" : "net",
+					"jsonFile" : "directory-net-Release-aaef8b16b4d54e37f78f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "net",
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-Release-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "main",
+					"jsonFile" : "directory-main-Release-72090c4a4cf973f97e42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "main",
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lm_upd",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mains",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-6f533f5614419a932587.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-ALL_BUILD-Release-3ed24e9eac7ff86b3609.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ALL_BUILD::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ALL_BUILD-Release-733f2d23f2b2e3481406.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ALL_BUILD::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-ALL_BUILD-Release-a7439651f879281e72b9.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Hello_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Hello_TEST-Release-3c3a4011c35899cb86ce.json",
+					"name" : "Hello_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Serializer_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Serializer_TEST-Release-39f3b3aa942843645594.json",
+					"name" : "Serializer_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T-RequestReply-UdpUtilsSync-TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T-RequestReply-UdpUtilsSync-TEST-Release-b80fd0a068065f0395a8.json",
+					"name" : "T2T-RequestReply-UdpUtilsSync-TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_TempateFunctions_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_TempateFunctions_TEST-Release-38ff8c3233f1886e6e92.json",
+					"name" : "T2T_UdpProducerConsumer_TempateFunctions_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST-Release-fe001bcb5534140feaf7.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST-Release-e7a8581e4c12ab81b9d9.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReplyAsync_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReplyAsync_TEST-Release-47197d61e28af6150c96.json",
+					"name" : "T2T_UdpRequestReplyAsync_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReply_TemplateFunction_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReply_TemplateFunction_TEST-Release-e7a120957edb23d10b2a.json",
+					"name" : "T2T_UdpRequestReply_TemplateFunction_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-6797a7f79746b0a00929.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client-Release-e4b4d30798b6c20d88b1.json",
+					"name" : "client",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client_struct-Release-e1d5068888d2dd12db53.json",
+					"name" : "client_struct",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "consumer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-consumer-Release-ab16e50ac7ab1419d60b.json",
+					"name" : "consumer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "net::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-net-Release-6fac3461f0606d151258.json",
+					"name" : "net",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "producer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-producer-Release-3ed5bac8f6123acf5d17.json",
+					"name" : "producer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server-Release-b998cfed4efa0ec77807.json",
+					"name" : "server",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server_struct-Release-87e24ca9bd284a56c17e.json",
+					"name" : "server_struct",
+					"projectIndex" : 3
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"build" : "net",
+					"jsonFile" : "directory-net-MinSizeRel-aaef8b16b4d54e37f78f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "net",
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-MinSizeRel-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "main",
+					"jsonFile" : "directory-main-MinSizeRel-72090c4a4cf973f97e42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "main",
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lm_upd",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mains",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-6f533f5614419a932587.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-3ed24e9eac7ff86b3609.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ALL_BUILD::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-733f2d23f2b2e3481406.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ALL_BUILD::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-a7439651f879281e72b9.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Hello_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Hello_TEST-MinSizeRel-ab06d0105f69d5cb9d59.json",
+					"name" : "Hello_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Serializer_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Serializer_TEST-MinSizeRel-08e2f4e2f742400255ad.json",
+					"name" : "Serializer_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T-RequestReply-UdpUtilsSync-TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T-RequestReply-UdpUtilsSync-TEST-MinSizeRel-0a599ead428f4533b973.json",
+					"name" : "T2T-RequestReply-UdpUtilsSync-TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_TempateFunctions_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_TempateFunctions_TEST-MinSizeRel-bf294391240d54fe8726.json",
+					"name" : "T2T_UdpProducerConsumer_TempateFunctions_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST-MinSizeRel-0a7cdd0338a93c7b92f4.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST-MinSizeRel-3c7b937ac4da082e6b3d.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReplyAsync_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReplyAsync_TEST-MinSizeRel-0a7ed2049bc8d9484daf.json",
+					"name" : "T2T_UdpRequestReplyAsync_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReply_TemplateFunction_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReply_TemplateFunction_TEST-MinSizeRel-e3dc7bddbcd268d2e422.json",
+					"name" : "T2T_UdpRequestReply_TemplateFunction_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-6797a7f79746b0a00929.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client-MinSizeRel-3e561ecd61b10f330124.json",
+					"name" : "client",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client_struct-MinSizeRel-22cc5630fb9ef0f86fbe.json",
+					"name" : "client_struct",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "consumer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-consumer-MinSizeRel-1799ad759af72953fdc4.json",
+					"name" : "consumer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "net::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-net-MinSizeRel-0cfc3e340bf00d1eef4d.json",
+					"name" : "net",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "producer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-producer-MinSizeRel-7e945917705e678f08fa.json",
+					"name" : "producer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server-MinSizeRel-ef3181e765d0ec50eeeb.json",
+					"name" : "server",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server_struct-MinSizeRel-5232c57939947c6f40d8.json",
+					"name" : "server_struct",
+					"projectIndex" : 3
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"build" : "net",
+					"jsonFile" : "directory-net-RelWithDebInfo-aaef8b16b4d54e37f78f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "net",
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"build" : "test",
+					"jsonFile" : "directory-test-RelWithDebInfo-f18be1977b403cfd1a50.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "main",
+					"jsonFile" : "directory-main-RelWithDebInfo-72090c4a4cf973f97e42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "main",
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lm_upd",
+					"targetIndexes" : 
+					[
+						0,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "net",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						16
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "mains",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						13,
+						14,
+						15,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-6f533f5614419a932587.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-3ed24e9eac7ff86b3609.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ALL_BUILD::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-733f2d23f2b2e3481406.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ALL_BUILD::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-a7439651f879281e72b9.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Hello_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Hello_TEST-RelWithDebInfo-56cb83909e91006a64b3.json",
+					"name" : "Hello_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Serializer_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-Serializer_TEST-RelWithDebInfo-0fcc3dd97daa321c73ac.json",
+					"name" : "Serializer_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T-RequestReply-UdpUtilsSync-TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T-RequestReply-UdpUtilsSync-TEST-RelWithDebInfo-00e44d219945dad821ca.json",
+					"name" : "T2T-RequestReply-UdpUtilsSync-TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_TempateFunctions_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_TempateFunctions_TEST-RelWithDebInfo-dfde295f5dc9487df9c6.json",
+					"name" : "T2T_UdpProducerConsumer_TempateFunctions_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST-RelWithDebInfo-7b034833bca1b512d408.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST-RelWithDebInfo-b1a62a7be9fa68654376.json",
+					"name" : "T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReplyAsync_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReplyAsync_TEST-RelWithDebInfo-b6e4cc5cea3f92603442.json",
+					"name" : "T2T_UdpRequestReplyAsync_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "T2T_UdpRequestReply_TemplateFunction_TEST::@36f028580bb02cc8272a",
+					"jsonFile" : "target-T2T_UdpRequestReply_TemplateFunction_TEST-RelWithDebInfo-3d4cefe18981823b1311.json",
+					"name" : "T2T_UdpRequestReply_TemplateFunction_TEST",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-6797a7f79746b0a00929.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client-RelWithDebInfo-59a48c9675e6206449c5.json",
+					"name" : "client",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "client_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-client_struct-RelWithDebInfo-158ac235c16587281173.json",
+					"name" : "client_struct",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "consumer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-consumer-RelWithDebInfo-13469143af8a60f84804.json",
+					"name" : "consumer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "net::@9c2d6179807f9007d92d",
+					"jsonFile" : "target-net-RelWithDebInfo-cc6e15e7794f5ff0451f.json",
+					"name" : "net",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "producer::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-producer-RelWithDebInfo-a3f4783169a28568744d.json",
+					"name" : "producer",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server-RelWithDebInfo-ae68b65c3f78d0cc6176.json",
+					"name" : "server",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "server_struct::@15c4a824ab2728a3f5e7",
+					"jsonFile" : "target-server_struct-RelWithDebInfo-d1c22dc6920ca8abb400.json",
+					"name" : "server_struct",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/e438262/Desktop/udp_client_server/build",
+		"source" : "C:/Users/e438262/Desktop/udp_client_server"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,12 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.22/Modules/FindPackageMessage.cmake
+C:/Users/e438262/Desktop/udp_client_server/main/CMakeLists.txt
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/eigen3/Eigen3Config.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/eigen3/Eigen3ConfigVersion.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/eigen3/Eigen3Targets.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/opencv/OpenCVConfig-version.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/opencv/OpenCVConfig.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/opencv/OpenCVModules-debug.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/opencv/OpenCVModules-release.cmake
+C:/Users/e438262/dev/github/vcpkg/installed/x64-windows/share/opencv/OpenCVModules.cmake
