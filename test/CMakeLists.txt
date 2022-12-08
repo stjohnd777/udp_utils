@@ -102,4 +102,10 @@ target_include_directories(T2T_UdpRequestReplyAsync_TEST PUBLIC net)
 target_link_libraries(T2T_UdpRequestReplyAsync_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
 
 
- 
+
+
+add_executable(UdpUtils_TEST  teststructs.h catch.hpp UdpUtils-TEST.cpp)
+target_include_directories(UdpUtils_TEST PUBLIC net)
+target_link_libraries(UdpUtils_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+
+

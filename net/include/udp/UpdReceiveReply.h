@@ -1,5 +1,5 @@
 #pragma once
-#include "udp_utils.h"
+#include "net.h"
 
 namespace lm { namespace spp {
 // server receives rand replys to sender with artifact procuded by handler

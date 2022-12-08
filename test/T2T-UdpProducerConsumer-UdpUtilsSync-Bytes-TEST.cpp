@@ -20,14 +20,6 @@ using namespace std;
 using namespace lm::spp;
 using namespace std::chrono;
 
-
-void HaltMainForSec(unsigned short seconds) {
-    std::cout << "Main thread pause for " << seconds <<  std::endl;
-    std::this_thread::sleep_for(seconds * 1000ms);
-    std::this_thread::sleep_for(1000ms);
-}
-
-
 /*
 * Producer/Comsumer
 *

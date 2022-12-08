@@ -1,4 +1,5 @@
 #pragma once
+#include "net.h"
 
 namespace lm { namespace spp {
 // cleint send upd Req message does not expect response

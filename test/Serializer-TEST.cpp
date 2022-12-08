@@ -55,13 +55,13 @@ public:
 
 
 TEST_CASE("Serializer Test ", "Simple Small struct") {
-    Test in;
+    A1 in;
     in._u8 = 1;
     in._u16 = 1;
     in._u32 = 3;
 
     char* t = lm::spp::Serialize(in);
-    Test* out = lm::spp::DeSerialize<Test>(t);
+    A1* out = lm::spp::DeSerialize<A1>(t);
 
     REQUIRE(in._u8 == out->_u8);
     REQUIRE(in._u16 == out->_u16);

@@ -11,7 +11,7 @@
 
 #include <boost/circular_buffer.hpp>
 
-
+#include "net.h"
 #include "teststructs.h"
 using namespace std;
 using namespace lm::spp;
@@ -100,64 +100,4 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
         HaltMainForSec(60);
         isRunning = false;
         HaltMainForSec(5);
-}
-
-
-
-
-//template<class Req, class Res>
-//Res* provider(Req* req) {
-//    static uint32_t counter = 0;
-//
-//     Do you processing on Request
-//     ... stuff here
-//     ... construct you response
-//
-//    Res* res = new Res();
-//    res->seq = counter;
-//    res->cameraId = req->cameraId;
-//    res->gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-//    res->retCode = counter;
-//    counter++;
-//    return res;
-//};
-
-auto provider = [&](Request* req) -> Response* {
-    static uint32_t counter = 0;
-
-    // Do you processing on Request
-    // ... stuff here
-    // ... construct you response
-
-    Response* res = new Response();
-    res->seq = counter;
-    res->cameraId = req->cameraId;
-    res->gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-    res->retCode = counter;
-    counter++;
-    return res;
-};
-
-TEST_CASE("T2T-RequestReply", "2") {
-    REQUIRE(true == true);
-
-    std::string host = "127.0.0.1";
-    unsigned short port = 7767;
-
-    // Server listening 
-    //UdpServer<Request, Response> server(host, port);
-    //bool isRunningAsThread = true;
-    //server.StartReqRes(provider , isRunningAsThread);
-
-    UdpClient<Request, Response> client(host, port);
-    for (auto i = 0; i < 100; i++) {
-        Request req;
-        req.seq = i;
-        req.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-        req.cameraId = 1;
-        auto spRes   = client.RequestReply(req);
-        //Response* res = spRes.get();
-    }
-
-    //server.Stop();
 }

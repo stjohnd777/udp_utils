@@ -23,8 +23,27 @@ namespace lm {
 
         typedef std::function<void ( const boost::system::error_code& error, std::size_t bytes_transferred )> ASCYNC_RECEIVER;
 
+        class IUdpClient {
+        public:
+            virtual void SendTo(std::string host, unsigned short port, const char* pdata, size_t len) = 0;
+            virtual std::tuple<size_t, std::shared_ptr<char[]>>  RequestReply(std::string host, unsigned short port, const char* pdata, size_t len) =0;
+            virtual ~IUdpClient() {};
+        };
+
+        class IUdpServer {
+        public:
+            virtual std::tuple<size_t, std::shared_ptr<char[]>> ServerReceiveNoReply(std::string host, unsigned short port) = 0;
+            virtual void ReceiveReply(std::string host, unsigned short port, REQ_REPLY_HANDLER handler) = 0;
+            virtual ~IUdpServer() {};
+        };
+
+        class IUpdUtils: public IUdpClient, public IUdpServer {
+           
+        };
+
         /**
-        This Class encapsulates UDP functionaliy for convienance
+        Encapsulates UDP functionaliy for convienance
+        - this interace is for bytes
         
         The UDP server/service is on host:port the data is a byte array of lenght len.
         - SendTo // fire and forget
@@ -32,7 +51,7 @@ namespace lm {
         - BlockingRead  // server listening for connection
         - RequestReply  // client request and reply 
         */
-        class UdpUtils {
+        class UdpUtils  : public IUdpClient , public IUdpServer {
         public:
             UdpUtils();
 
@@ -48,8 +67,10 @@ namespace lm {
             */
             void SendTo(std::string host, unsigned short port,const char* pdata, size_t len);
             
-            template<size_t N>
-            void SendTo(std::string host, unsigned short port, const std::array<char, N>& data);
+            
+            //// atempt to avoid older practices and avoid native C types
+            //template<size_t N> 
+            //void SendTo(std::string host, unsigned short port, const std::array<char, N>& data);
 
             /**
             This method is mdoeling UDP server receiving, acting as consumer
@@ -63,6 +84,10 @@ namespace lm {
             */
             std::tuple<size_t,std::shared_ptr<char[]> >
             ServerReceiveNoReply(std::string host, unsigned short port);
+
+            //// atempt to avoid older practices and avoid native C types
+            //template < size_t N>
+            //std::array<char, N > ServerReceiveNoReply2(std::string host, unsigned short port);
 
            /**
             This method UDP server blocking reead
@@ -99,43 +124,50 @@ namespace lm {
             /**
             * This function is used to asynchronously receive a datagram. 
             * The function call always returns immediately.
-            * Receive single data buffer  
+            * Receive single data buffer 
             */
+          
+
             template<class Req>
-            void AsyncReceiveReply(std::string host, unsigned short port, ASCYNC_RECEIVER);
+            void AsyncReceiveReply(std::string host, unsigned short port, ASCYNC_RECEIVER handler) {
+                using namespace boost::asio;
+                using namespace boost::asio::ip;
+                //udp::socket socket(m_ios, boost::asio::ip::udp::endpoint(udp::v4(), port));
+                udp::endpoint remote_endpoint;
+                m_udp_socket.async_receive_from(boost::asio::buffer(m_async_reciev_buffer, sizeof(Req)), 0, remote_endpoint, handler);
+            }
 
             ASCYNC_RECEIVER echo_handler = [this](const boost::system::error_code& error, std::size_t bytes_transferred) {
                 std::lock_guard<std::mutex> guard(m_async_buffer_mutex);
                 std::cout << "Bytes Recieved:" << bytes_transferred << std::endl;
-                for (auto b : async_reciev_buffer) {
+                for (auto b : m_async_reciev_buffer) {
                     std::cout << b << "."; 
                 }
                 std::cout << std::endl;
-                for (auto b : async_reciev_buffer) {
+                for (auto b : m_async_reciev_buffer) {
                     std::cout << lm::spp::toBinaryString(b) << ".";
                 }
                 std::cout << std::endl;
             };
-
-            /*
-            template<class Req>
-            std::future<Req> GetRequest(std::string host, unsigned short port, ASCYNC_RECEIVER) {
-                std::promise<int> promise;
-                std::future<int>  future = promise.get_future();
-                std::thread t([this]() {
-                    Req req;
-                    promise.set_value(req);
-                },  std::move(promise));
-                return std::move(future);
-            }
-            */
+           
+           
+            //template<class Req>
+            //std::future<Req> GetRequest(std::string host, unsigned short port, ASCYNC_RECEIVER) {
+            //    std::promise<int> promise;
+            //    std::future<int>  future = promise.get_future();
+            //    std::thread t([this]() {
+            //        Req req;
+            //        promise.set_value(req);
+            //    },  std::move(promise));
+            //    return std::move(future);
+            //}
+       
 
             virtual ~UdpUtils();
 
 
             // TODO: lambda access requires access to mutex and buffer, trade off
-            char async_reciev_buffer[MAX_DATAGRAM];
-            //ATR(char[MAX_DATAGRAM], async_reciev_buffer, AsyncRecievBuffer)
+            char m_async_reciev_buffer[MAX_DATAGRAM];
             std::mutex m_async_buffer_mutex;
         protected:
             boost::asio::io_service m_ios;

@@ -31,11 +31,11 @@ TEST_CASE( "T2T-RequestReplyAsync", "1" )
         [&](const boost::system::error_code& error, size_t bytes_transferred) {
             std::lock_guard<std::mutex> guard(server.m_async_buffer_mutex);
             std::cout << "Bytes Recieved:" << bytes_transferred << std::endl;
-            for (auto b : server.async_reciev_buffer) {
+            for (auto b : server.m_async_reciev_buffer) {
                 std::cout << b << ".";
             }
             std::cout << std::endl;
-            for (auto b : server.async_reciev_buffer) {
+            for (auto b : server.m_async_reciev_buffer) {
                 std::cout << lm::spp::toBinaryString(b) << ".";
             }
             std::cout << std::endl;

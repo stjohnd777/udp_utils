@@ -1,5 +1,5 @@
 #pragma once
-#include "udp_utils.h"
+#include "net.h"
 
 
 namespace lm { namespace spp {
@@ -14,10 +14,10 @@ namespace lm { namespace spp {
 
         void StartReqRes( std::function<Response* (Request*)> handler, bool isThread = false) {
             
-            isRunning = true;
+            m_IsRunning = true;
 
             auto worker = [&]() {
-                while (isRunning) {
+                while (m_IsRunning) {
                     ReceiveReply(handler);
                 }
             };
@@ -30,10 +30,10 @@ namespace lm { namespace spp {
             
         }
         void Stop() {
-            isRunning =false;
+            m_IsRunning =false;
         }
     protected:
-        bool isRunning = false;
+        bool m_IsRunning = false;
         std::string m_host;
         unsigned short m_port;
     };

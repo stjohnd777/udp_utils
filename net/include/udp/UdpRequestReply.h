@@ -1,5 +1,6 @@
 #pragma once
-#include "udp_utils.h"
+#include "net.h"
+#include <algorithm>
 
 namespace lm { namespace spp {
 // client sends Req udp message and expects response Res
@@ -7,11 +8,15 @@ template<class Req, class Res>
 Res* UdpRequestReply(std::string host, unsigned short port, Req req) {
     
     try {
+        // TODO: std::array/copy_n over char[]/memcpy
+        // TODO: consider shared_<ptr<Res*> over Res*
         // send
         auto bytes_req = lm::spp::Serialize(req);
         char send_buf[sizeof(Req)];
         memcpy(send_buf, bytes_req, sizeof(Req));
         auto bufferedData = asio::buffer(send_buf);
+        //std::array<char, sizeof(Req)> send_buf;
+        //std::copy_n(send_buf, sizeof(req), bytes_req);
 
         boost::asio::io_service ios;
         boost::asio::ip::udp::socket udp_socket(ios);
