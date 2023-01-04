@@ -17,6 +17,7 @@ add_library(
         ${PROJECT_NAME}
         include/macro.h
         include/utils.h
+        include/lm_types.h
         include/udp/udp_utils.h
         
         include/udp/UdpProducer.h

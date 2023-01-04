@@ -1,11 +1,7 @@
 # Communication Library with UPD  
 
 This is designed to be a general UPD api. This project provides a set of tools to allow integration between process and hosts. We give following functionality:
-
-
-- sudo apt-get install libpthread-stubs0-dev
-
-
+ 
 ### Producer/Comsumer
 - Send UPD message
   - (Producer)
@@ -35,8 +31,7 @@ This is designed to be a general UPD api. This project provides a set of tools t
 
 ### Dependencies
 - boost::asio
-
-
+ 
 ### Build
 windows
 ```
@@ -47,7 +42,7 @@ linux
 
 ```
 
-### Example
+
 ```c++
     // TODO: maybe shared_ptr
     template <class SomeStruct>
@@ -87,6 +82,9 @@ linux
     }
 ```
  
+
+### UDP
+
 UDP is connectionless: 
 - Means make no efforts to validate delivery ... etc
 ---
@@ -118,13 +116,7 @@ Thus:
   - mandatory in IPv6
   - The field carries all-zeros if unused 
 
-<<<<<<< HEAD
-### Regarding Size
-
-The image alone
-```
-2591 * 1444 = 3,742, 848 bytes = 3.742848 MB = 0.003742848G
-```
+ 
  
 For completeness IP4 header:
 ![ip4header](./doc/ip4header.png)
