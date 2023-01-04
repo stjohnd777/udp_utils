@@ -2,9 +2,7 @@
 
 #include "net.h"
 #include <algorithm>
-
-namespace lm {
-    namespace spp {
+ 
 
         template<class Req, class Res>
         Res *UdpRequestReply(std::string host, unsigned short port, Req req) {
@@ -48,5 +46,4 @@ namespace lm {
         }
 
 
-    }
-}
+ 

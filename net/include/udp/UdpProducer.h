@@ -2,8 +2,7 @@
 
 #include "net.h"
 
-namespace lm {
-    namespace spp {
+ 
 
         // Producer
         template<class Request, class Response>
@@ -21,5 +20,4 @@ namespace lm {
             unsigned short m_port;
         };
 
-    }
-}
+ 

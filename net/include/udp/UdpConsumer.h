@@ -4,9 +4,7 @@
 #include <algorithm>
 
 using namespace std;
-
-namespace lm {
-    namespace spp {
+ 
 
         template<class Req, class Reply>
         class UdpConsumer {
@@ -37,5 +35,4 @@ namespace lm {
             bool m_IsRunning = false;
             lm::spp::UdpUtils m_UdpUtils;
         };
-    }
-}
+ 

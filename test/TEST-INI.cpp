@@ -12,8 +12,8 @@ TEST_CASE("INI TEST", "Props") {
 
     REQUIRE(true == true);
 
-    string pathConfig = "C:/Users/e438262/dev/lm/gitlab/udp_utils/config.ini";
-    lm::utils::Props props(pathConfig);
+    string pathConfig = "../config.ini";
+    Props props(pathConfig);
 
 
     // [Application]

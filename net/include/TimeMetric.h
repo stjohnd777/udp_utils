@@ -9,9 +9,7 @@ typedef std::chrono::time_point<
 > TP;
 
 using namespace std::chrono;
-
-namespace lm {
-    namespace utils {
+ 
 /**
  * <h4>Simple Timing Utility.
  *
@@ -87,5 +85,4 @@ namespace lm {
             static double GetDuration(std::string key, int index);
 
         };
-    }
-}
+ 

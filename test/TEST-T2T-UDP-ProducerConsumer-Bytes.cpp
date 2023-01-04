@@ -17,7 +17,7 @@
 #include "teststructs.h"
 
 using namespace std;
-using namespace lm::spp;
+ 
 using namespace std::chrono;
 
 /*

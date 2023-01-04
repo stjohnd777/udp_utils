@@ -21,10 +21,7 @@ using namespace std;
 #define HEIGHT 1952
 #define CHANNEL 2
 #define LEN WIDTH *HEIGHT *CHANNEL
-namespace lm
-{
-    namespace spp
-    {
+ 
         struct camera_trigger
         {
             double time;
@@ -146,5 +143,4 @@ namespace lm
             std::atomic<bool> m_stop;
             unsigned short m_port;
         };
-    }
-};
+ 

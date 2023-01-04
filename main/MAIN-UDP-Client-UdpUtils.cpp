@@ -15,7 +15,7 @@
 
 
 using namespace std;
-using namespace lm::spp;
+ 
 using namespace std::chrono;
 
 
@@ -55,13 +55,13 @@ int main() {
             Request req;
             req.seq = i;
             req.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-            auto send_bytes = lm::spp::Serialize(req);
+            auto send_bytes = Serialize(req);
 
             auto t = udpUtil->RequestReply(host, port, send_bytes, sizeof(Request));
 
             auto len = std::get<0>(t);
             auto pChar = std::get<1>(t);
-            Response *res = lm::spp::DeSerialize<Response>(pChar.get());
+            Response *res = DeSerialize<Response>(pChar.get());
 
         }
 

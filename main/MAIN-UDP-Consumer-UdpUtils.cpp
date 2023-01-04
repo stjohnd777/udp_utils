@@ -11,7 +11,7 @@
 
 
 using namespace std;
-using namespace lm::spp;
+ 
 
 PACK(struct Request
              {

@@ -3,8 +3,7 @@
 #include "net.h"
 #include "udp_utils.h"
 
-namespace lm {
-    namespace spp {
+ 
 
         template<class Req>
         void UdpSend(std::string host, unsigned short port, Req req) {
@@ -13,5 +12,4 @@ namespace lm {
             udpClient.SendTo(host, port, p, sizeof(req));
 
         }
-    }
-}
+ 

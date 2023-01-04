@@ -11,8 +11,7 @@
 
 using namespace boost;
 
-namespace lm {
-    namespace  spp {
+ 
 
         struct UdpTrack {
             uint8_t length = 0;
@@ -61,8 +60,5 @@ namespace lm {
             static void IgnoreComments(FILE* fp);
         };
  
-    }
-}
-
-
+ 
 

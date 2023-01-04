@@ -29,8 +29,8 @@ TEST_CASE("Serializer Test ", "Simple-Small-struct") {
     in._u16 = 1;
     in._u32 = 3;
 
-    char* t = lm::spp::Serialize(in);
-    A1* out = lm::spp::DeSerialize<A1>(t);
+    char* t =  Serialize(in);
+    A1* out =  DeSerialize<A1>(t);
 
     REQUIRE(in._u8 == out->_u8);
     REQUIRE(in._u16 == out->_u16);
@@ -43,7 +43,7 @@ TEST_CASE("Serializer Test ", "Simple-Small-struct") {
     cout << "struct A0 " << sizeof(A0) << endl;
     char* p0 = lm::spp::Serialize(a0);
     for (auto i = 0; i < sizeof(A0) - 1; i++) {
-        cout << "[" << i << "]:" << lm::spp::toBinaryString(p0[i]);
+        cout << "[" << i << "]:" <<  toBinaryString(p0[i]);
         if (i < (sizeof(A0) - 2)) {
             cout << ".";
         }
@@ -53,7 +53,7 @@ TEST_CASE("Serializer Test ", "Simple-Small-struct") {
     cout << "struct A1 " << sizeof(A1) << endl;
     char* p1 = lm::spp::Serialize(a1);
     for (auto i = 0; i < sizeof(A1)-1; i++) {
-        cout << "[" << i << "]:" << lm::spp::toBinaryString(p1[i]);
+        cout << "[" << i << "]:" << toBinaryString(p1[i]);
         if (i < (sizeof(A1) - 2)) {
             cout << ".";
         }

@@ -14,7 +14,7 @@
 #include "net.h"
 #include "teststructs.h"
 using namespace std;
-using namespace lm::spp;
+ 
 using namespace std::chrono;
 
 void HaltMainForSec(unsigned short seconds) {

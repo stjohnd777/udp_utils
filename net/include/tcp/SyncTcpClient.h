@@ -20,10 +20,7 @@ using namespace std;
 #define HEIGHT 1952
 #define CHANNEL 2
 #define LEN WIDTH *HEIGHT *CHANNEL
-namespace lm
-{
-    namespace spp
-    {
+ 
         class SyncTCPClient
         {
         public:
@@ -93,5 +90,4 @@ namespace lm
             asio::ip::tcp::endpoint m_ep;
             asio::ip::tcp::socket m_sock;
         };
-    }
-};
+ 

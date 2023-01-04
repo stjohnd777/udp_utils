@@ -3,8 +3,7 @@
 #include "net.h"
 
 
-namespace lm {
-    namespace spp {
+ 
         template<class Request, class Response>
         class UdpServer {
         public:
@@ -32,5 +31,5 @@ namespace lm {
             std::string m_host;
             unsigned short m_port;
         };
-    }
-}
+ 
+ 

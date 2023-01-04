@@ -24,7 +24,6 @@ unsigned short port = 7767;
 
 
  
-using namespace lm::spp;
 
 TEST_CASE("UdpUtils", "()")
 {

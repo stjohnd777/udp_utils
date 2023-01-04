@@ -11,12 +11,7 @@ find_package(OpenCV CONFIG REQUIRED)
 
 find_package(Boost REQUIRED)
 
-################################################################
-# App
-################################################################
-add_executable(app helix.h app.cpp)
-target_include_directories( app PUBLIC net )
-target_link_libraries(app  PRIVATE net Threads::Threads ${Boost_LIBRARIES})
+ 
 
 
 ################################################################

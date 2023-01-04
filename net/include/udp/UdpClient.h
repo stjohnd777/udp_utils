@@ -1,9 +1,7 @@
 #pragma once
 
 #include "net.h"
-
-namespace lm {
-    namespace spp {
+ 
 
         // Client
         template<class Request, class Response>
@@ -24,5 +22,4 @@ namespace lm {
             std::string m_host;
             unsigned short m_port;
         };
-    }
-}
+ 

@@ -6,14 +6,9 @@
 #include <functional>
 #include <memory>
 #include <boost/asio.hpp>
-//#include <boost/array.hpp>
-
-
+ 
 typedef char byte;
-
-namespace lm {
-
-    namespace spp {
+ 
 
         typedef std::function<std::tuple<size_t, std::shared_ptr<char[]>>(
                 std::tuple<size_t, std::shared_ptr<char[]>>)> REQ_REPLY_HANDLER;
@@ -130,6 +125,4 @@ namespace lm {
             boost::asio::io_service m_ios;
             boost::asio::ip::udp::socket m_udp_socket;
         };
-    }
-}
-
+ 

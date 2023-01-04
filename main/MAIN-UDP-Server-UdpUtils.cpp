@@ -14,7 +14,7 @@
 
 
 using namespace std;
-using namespace lm::spp;
+ 
 using namespace std::chrono;
 
 // packing structures to ensure compiler does not padd on 
@@ -63,7 +63,7 @@ int main() {
 
             // do whatever you need with the bytes, here as example we have bytes as Request struture
             // and ofcource clear voince is need on what this structure is
-            Request *request = lm::spp::DeSerialize<Request>(pChar.get());
+            Request *request = DeSerialize<Request>(pChar.get());
             cout << "receive:" << request->seq << ":" << request->gpsTime << ":" << request->cameraId << endl;
 
             // we retrun whatever is need in bytes/lenght. Here as example we serialize the structure

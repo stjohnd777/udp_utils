@@ -1,9 +1,8 @@
 #include <net.h>
 #include <tuple>
 #include <iostream>
-
-using namespace lm::spp;
-#include "lm_types.h"
+ 
+ 
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -15,7 +14,11 @@ using namespace lm::spp;
 // 5,215,744  bytes   5215744
 // 10,431,488 bytes
 
-string image_path = "C:/Users/e438262/dev/lm/gitlab/udp_utils/img/cat.2672x1952.grey16.png";
+string image_path = "../img/cat.2672x1952.grey16.png";
+
+struct GncInputBus {
+
+};
 
 auto handler = [&](int cameraId, double time)
 {

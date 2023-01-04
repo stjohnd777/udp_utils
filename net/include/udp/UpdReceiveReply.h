@@ -1,9 +1,7 @@
 #pragma once
 
 #include "net.h"
-
-namespace lm {
-    namespace spp {
+ 
         // server receives rand replys to sender with artifact produced by handler
         template<class Req, class Res>
         void UpdReceiveReplyOne(std::string host, unsigned short port, std::function<Res *(Req *)> handler) {
@@ -48,4 +46,4 @@ namespace lm {
         }
 
     }
-}
+ 

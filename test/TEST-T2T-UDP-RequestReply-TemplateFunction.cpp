@@ -10,7 +10,7 @@
 #include "teststructs.h"
 
 using namespace std;
-using namespace lm::spp;
+ 
 using namespace std::chrono;
 
 std::string host = "127.0.0.1";

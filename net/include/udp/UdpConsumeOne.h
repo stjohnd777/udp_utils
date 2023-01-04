@@ -2,11 +2,7 @@
 #include <algorithm>
 
 using namespace std;
-
-namespace lm
-{
-    namespace spp
-    {
+ 
         template<class Req>
         void UpdConsumeOne(std::string host, unsigned short port, std::function<void(Req *)> handler) {
             // TODO:: maybe shared pointer for Req
@@ -26,5 +22,4 @@ namespace lm
             socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
             socket.close();
         }
-    }
-}
+ 
