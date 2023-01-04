@@ -9,11 +9,16 @@
 #include <tuple>
 #include <bitset>
 
-
 using namespace boost;
 
 namespace lm {
     namespace  spp {
+
+        struct UdpTrack {
+            uint8_t length = 0;
+            uint64_t uuid  = 0;
+            uint8_t seq    = 0;
+        };
 
         std::string toBinaryString(char c);
 
@@ -44,9 +49,6 @@ namespace lm {
             unsigned int maxValue;
         } ;
 
-       
- 
-            
         class utils {
         public:
 

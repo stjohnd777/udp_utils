@@ -40,8 +40,9 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
 
                     Request req;
                     req.seq = count;
-                    req.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+                    req.gpsTime = count;// duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
                     req.cameraId = 1;
+
                     char* bytesReq = lm::spp::Serialize(req);
                     cout << "sending thread:" << std::this_thread::get_id()  << ":" << bytesReq << " len:" << sizeof(Request) << endl;
                     
@@ -50,6 +51,12 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
                     auto len_res = std::get<0>(tupleRes);
                     auto bytesRes = std::get<1>(tupleRes);
                     Response* res = lm::spp::DeSerialize<Response>(bytesRes.get());
+
+                    REQUIRE(res->seq == count);
+                    REQUIRE(res->gpsTime == count);
+                    REQUIRE(res->cameraId == 1);
+                    REQUIRE(res->retCode == 77);
+
 
                     std::this_thread::sleep_for(1000ms);
    
@@ -65,6 +72,7 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
                 UdpUtils udpUtil;
                 while (isRunning) {
                     
+                    int count = 0;
                     udpUtil.ReceiveReply(host, port, [&](std::tuple<size_t, std::shared_ptr<char[]>> req) {
 
                         // Get request Data
@@ -72,11 +80,14 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
                         auto pChar = std::get<1>(req);
                         Request* request = lm::spp::DeSerialize<Request>(pChar.get());
                         cout << "receive:" << request->seq << ":" << request->gpsTime << ":" << request->cameraId << endl;
+                        REQUIRE(request->seq == count);
+                        REQUIRE(request->gpsTime == count);
+                        REQUIRE(request->cameraId == 1);
 
                         // Create Response
                         Response response;
                         response.seq = request->seq;
-                        response.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+                        response.gpsTime = request->gpsTime;// duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
                         response.cameraId = request->cameraId;
                         response.retCode = 77;
 
@@ -87,6 +98,7 @@ TEST_CASE( "T2T-RequestReply", "1" ) {
                         memcpy(sp.get(), bytesOut, size_bytes_out);
 
                         auto res = std::make_tuple(size_bytes_out, sp);
+                        count++;
                         return res;
                         });
 

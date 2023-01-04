@@ -1,16 +1,18 @@
 #pragma once
+
 #include "net.h"
 
-namespace lm { 
+namespace lm {
     namespace spp {
- 
+
         // Producer
-        template<class Request, class Response >
+        template<class Request, class Response>
         class UdpSender {
         public:
             UdpSender(std::string host, unsigned short port) : m_host(host), m_port(port) {
             }
-            void Send(Request& req) {
+
+            void Send(Request &req) {
                 lm::spp::UdpSend<Request>(m_host, m_port, req);
             }
 

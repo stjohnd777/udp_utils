@@ -2,15 +2,14 @@
 #include "catch.hpp"
 #include <net.h>
 #include <iostream>
-#include <sstream>
-#include <iostream>
 #include <thread>
 #include <chrono>
 #include <tuple>
 #include <functional>
 #include <memory>
-#include <algorithm>
- 
+
+#include <cstddef>
+#include <vector>
 
 #include <boost/circular_buffer.hpp>
 
@@ -20,7 +19,6 @@ using namespace std;
 using namespace lm::spp;
 using namespace std::chrono;
 
-bool isRunning = true;
 std::string host = "127.0.0.1";
 unsigned short port = 7767;
 
@@ -46,10 +44,10 @@ TEST_CASE("UdpUtils::SendTo/ServerReceiveNoReply", "SendTo/ServerReceiveNoReply"
         IUdpServer* server = new UdpUtils();
         ready = true;
         auto tup = server->ServerReceiveNoReply(host, port);
-        size_t bytes_recv = get<0>(tup);
+        size_t bytes_rcv = get < 0 > (tup);
         std::shared_ptr<char[]> sp = get<1>(tup);
-        std::cout << bytes_recv << endl;
-        for (auto i = 0; i < bytes_recv; i++) {
+        std::cout << bytes_rcv << endl;
+        for (auto i = 0; i < bytes_rcv; i++) {
             char c = *(sp.get() + i);
             std::cout << c << ":";
             if (i % 10 == 0) {
@@ -64,7 +62,9 @@ TEST_CASE("UdpUtils::SendTo/ServerReceiveNoReply", "SendTo/ServerReceiveNoReply"
 
 
     IUdpClient*  producer = new  UdpUtils ();
+
     while (!ready);
+
     producer->SendTo(host, port, bytes, 1000);
     delete producer;
     std::this_thread::sleep_for(1000ms);
@@ -126,9 +126,3 @@ TEST_CASE("UdpUtils::RequestReply/ReceiveReply", "RequestRepl/ReceiveReply")
     REQUIRE(true == true);
 
 }
- 
-
-TEST_CASE("UdpUtils::AsyncReceiveReply", "AsyncReceiveReply")
-{
-}
-

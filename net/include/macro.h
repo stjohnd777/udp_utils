@@ -3,6 +3,10 @@
 // 0xffff - (sizeof(IP Header) + sizeof(UDP Header)) = 65535 - (20 + 8) = 65507
 
 #define MAX_DATAGRAM 65507
+#define WIDTH   2672
+#define HEIGHT  1952
+#define CHANNEL 2
+#define LEN     WIDTH*HEIGHT*CHANNEL
 
 #define ATTRV(varType, varName, funName, v)\
     protected: varType varName = v ;\

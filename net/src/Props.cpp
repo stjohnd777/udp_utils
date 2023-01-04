@@ -1,24 +1,31 @@
-/*
- * Props.cpp
- *
- *  Created on: Jun 12, 2020
- *      Author: local-admin
- */
 
 #include "Props.h"
+#include <iostream>
+
+using namespace std;
 
 namespace lm {
     namespace utils {
 
-        Props::Props() {
-            // TODO Auto-generated constructor stub
+        Props::Props() {}
+
+        Props::Props(string configPath) {
+     
+            boost::property_tree::ini_parser::read_ini(configPath, pt);
+            //std::cout << pt.get<std::string>("Application.name") << std::endl;
+            //std::cout << pt.get<std::string>("Application.image_mode") << std::endl;
+            //std::cout << pt.get<std::string>("Application.truth_ring_depth") << std::endl;
+            //std::cout << pt.get<std::string>("Application.data_mode") << std::endl;
+
         }
 
-        Props::~Props() {
-            // TODO Auto-generated destructor stub
+  
+        string Props::getIniPropertyAsString(string sectionProp) {
+            return pt.get<string>(sectionProp);
         }
 
-        std::string Props::getEnvironmentVarAsString(const std::string name) {
+
+        std::string Props::getEnvVarAsString(const std::string name) {
             std::string value;
             try {
                 std::string value = std::getenv(name.c_str());
@@ -28,7 +35,7 @@ namespace lm {
             return value;
         }
 
-        int Props::getEnvironmentVarAsInt(const std::string name) {
+        int Props::getEnvVarAsInt(const std::string name) {
             int value = -1;
             try {
                 std::string svalue = std::getenv(name.c_str());
@@ -37,6 +44,10 @@ namespace lm {
 
             }
             return value;
+        }
+
+        Props::~Props() {
+             
         }
 
     }

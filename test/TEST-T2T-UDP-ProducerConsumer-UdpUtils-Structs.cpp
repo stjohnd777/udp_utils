@@ -2,11 +2,11 @@
 #include "catch.hpp"
 #include <net.h>
 #include <iostream>
-#include <sstream>
-#include <iostream>
 #include <thread>
 #include <chrono>
-#include <algorithm>
+#include <tuple>
+#include <functional>
+
 
 #include <boost/circular_buffer.hpp>
 
@@ -17,21 +17,43 @@ using namespace std;
 using namespace lm::spp;
 using namespace std::chrono;
 
+
 void HaltMainForSec(unsigned short seconds) {
     std::cout << "Main thread pause for " << seconds <<  std::endl;
     std::this_thread::sleep_for(seconds * 1000ms);
     std::this_thread::sleep_for(1000ms);
 }
 
-TEST_CASE( "T2T-ProducerConsumer", "[1]" ) {
+/*
+* Producer/Consumer
+* 
+* TEST sending a packed serialized structure over the wire
+* in fire and forget mode (Producer). 
+*
+* The TEST uses the lower level api UdpUtils
+*
+* Hence, works with bytes.
+* 
+* In such user is responsible for serializing 
+* the struct.  
+* 
+* Consumer and Producer in separate threads.
+*/
+TEST_CASE( "T2T-ProducerConsumer", "With Structs" ) {
     REQUIRE( true == true );
+
     bool isRunning = true;
     std::string host = "127.0.0.1";
     unsigned short port = 7767;
 
-        auto startSending = [isRunning](string host, unsigned short port) {
+    std::vector<Request> vsent;
+    std::vector<Request*> vrecv;
+    /*
+    * Producer
+    */
+        auto startSending = [&,isRunning](string host, unsigned short port) {
             auto t = new thread([&](string host, unsigned short port) {
-                UdpUtilsSync udpUtil;
+                UdpUtils udpUtil;
                 int send_count = 0;
                 while (isRunning) {
                     Request req;
@@ -42,6 +64,7 @@ TEST_CASE( "T2T-ProducerConsumer", "[1]" ) {
                     stringstream ss;
                     ss << "Sending Some Data " << bytes << endl;
                     udpUtil.SendTo(host, port,bytes,sizeof(Request));
+                    vsent.push_back(req);
                     cout << "sent:" << req.seq << ":" << req.gpsTime << ":" << req.cameraId << endl;
 
                     std::this_thread::sleep_for(1000ms);
@@ -56,17 +79,21 @@ TEST_CASE( "T2T-ProducerConsumer", "[1]" ) {
         startSending(host,port)->detach();
         startSending(host,port)->detach();
 
-        auto startReceiving = [isRunning](string host, unsigned short port) {
+        /*
+        * Consumer
+        */
+        auto startReceiving = [&,isRunning](string host, unsigned short port) {
             auto t = new thread([&](string host, unsigned short port) {
 
                 boost::circular_buffer<Request*> circular_buffer(3);
-                UdpUtilsSync udpUtil;
+                UdpUtils udpUtil;
                 while (isRunning) {
                     try {
                         auto t = udpUtil.ServerReceiveNoReply(host, port);
                         auto len = get<0>(t);
                         auto pChar = std::get<1>(t);
                         Request* req = lm::spp::DeSerialize<Request>(pChar.get());
+                        vrecv.push_back(req);
                         cout << "receive:" << req->seq << ":" << req->gpsTime << ":" << req->cameraId << endl;
                         circular_buffer.push_back(req);
                     }
@@ -87,6 +114,17 @@ TEST_CASE( "T2T-ProducerConsumer", "[1]" ) {
         startReceiving(host,port)->detach();
 
         HaltMainForSec(60);
-
         isRunning = false;
+
+        REQUIRE(vsent.size() == vrecv.size());
+
+        for_each(begin(vsent), end(vsent), [&](Request req) {
+            auto it = find_if(vrecv.begin(), vrecv.end(), [&](Request* _req) {
+                return req.seq == _req->seq;
+                });
+            REQUIRE(it != end(vrecv));
+            Request* _req = *it;
+            REQUIRE(_req->cameraId == req.cameraId);
+            REQUIRE(_req->gpsTime == req.gpsTime);
+            });
 }

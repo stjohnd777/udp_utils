@@ -1,11 +1,9 @@
-
 #include <algorithm>
 #include <boost/asio.hpp>
 
+#include <macro.h>
 #include <utils.h>
 #include <udp/udp_utils.h>
-
-
 
 namespace lm {
     namespace  spp {
@@ -42,7 +40,6 @@ namespace lm {
             boost::asio::ip::udp::socket socket(io_context, boost::asio::ip::udp::endpoint( boost::asio::ip::udp::v4(),port));
 
             char recv_buf[MAX_DATAGRAM] = {0};
-            //memset(recv_buf,0, MAX_DATAGRAM);
 
             boost::asio::ip::udp::endpoint remote_endpoint;
             std::size_t bytes_received = socket.receive_from(boost::asio::buffer(recv_buf), remote_endpoint);
@@ -74,7 +71,6 @@ namespace lm {
         UdpUtils::BlockingRead() {
 
             char recv_buf[MAX_DATAGRAM] = {0};
-            //memset(recv_buf,0, MAX_DATAGRAM);
 
             boost::asio::ip::udp::endpoint sender_endpoint;
             size_t bytes_received = m_udp_socket.receive_from(boost::asio::buffer(recv_buf), sender_endpoint);

@@ -3,8 +3,9 @@ project(test)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(Eigen3 CONFIG REQUIRED)
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+
+
+find_package(OpenCV CONFIG REQUIRED)
 
 
 ################################################################
@@ -20,19 +21,29 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 # Template to Copy
 # Test is catch2 is working
 ################################################################
-add_executable(Hello_TEST  teststructs.h catch.hpp Hello-TEST.cpp)
-target_include_directories(Hello_TEST PUBLIC net)
-target_link_libraries(Hello_TEST  PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen)
+add_executable(TEST-Hello  teststructs.h catch.hpp TEST-Hello.cpp)
+target_include_directories(TEST-Hello PUBLIC net)
+target_link_libraries(TEST-Hello  PRIVATE net Eigen3::Eigen)
 ################################################################
+
+
+################################################################
+# INI
+#
+################################################################
+add_executable(TEST-INI  teststructs.h catch.hpp TEST-INI.cpp)
+target_include_directories(TEST-INI PUBLIC net)
+target_link_libraries(TEST-INI  PRIVATE net Eigen3::Eigen)
+
 
 
 ################################################################
 # Serialize/Deserialize structs
 #
 ################################################################
-add_executable(Serializer_TEST teststructs.h catch.hpp Serializer-TEST.cpp)
-target_include_directories(Serializer_TEST PUBLIC net)
-target_link_libraries(Serializer_TEST  PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen)
+add_executable(TEST-Serializer  teststructs.h catch.hpp TEST-Serializer.cpp)
+target_include_directories(TEST-Serializer PUBLIC net)
+target_link_libraries(TEST-Serializer  PRIVATE net  Eigen3::Eigen)
 ################################################################
 
 
@@ -40,19 +51,19 @@ target_link_libraries(Serializer_TEST  PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen)
 # Procuder Consumer Section
 
 ################################################################
-# Test UpdUtilsSync Producer-Consumer Thread to Thread
+# Test UpdUtils Producer-Consumer Thread to Thread
 #   Producer
 #   void SendTo(std::string host, unsigned short port,const char* pdata, size_t len)
 #   Consumer
 #   std::tuple<size_t,std::shared_ptr<char[]> >ServerReceiveNoReply(std::string host, unsigned short port)
 ###############################################################
-add_executable(T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST  teststructs.h catch.hpp T2T-UdpProducerConsumer-UdpUtilsSync-Structs-TEST.cpp)
-target_include_directories(T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST PUBLIC net)
-target_link_libraries(T2T_UdpProducerConsumer_UdpUtilsSync_Structs_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+add_executable(TEST-T2T-UDP-ProducerConsumer-UdpUtils-Structs  teststructs.h catch.hpp TEST-T2T-UDP-ProducerConsumer-UdpUtils-Structs.cpp)
+target_include_directories(TEST-T2T-UDP-ProducerConsumer-UdpUtils-Structs PUBLIC net)
+target_link_libraries(TEST-T2T-UDP-ProducerConsumer-UdpUtils-Structs PRIVATE net Eigen3::Eigen  )
 
-add_executable(T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST  teststructs.h catch.hpp T2T-UdpProducerConsumer-UdpUtilsSync-Bytes-TEST.cpp)
-target_include_directories(T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST PUBLIC net)
-target_link_libraries(T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+add_executable(TEST-T2T-UDP-ProducerConsumer-Bytes  teststructs.h catch.hpp TEST-T2T-UDP-ProducerConsumer-Bytes.cpp)
+target_include_directories(TEST-T2T-UDP-ProducerConsumer-Bytes PUBLIC net)
+target_link_libraries(TEST-T2T-UDP-ProducerConsumer-Bytes PRIVATE net Eigen3::Eigen  )
 
 
 ################################################################
@@ -60,12 +71,12 @@ target_link_libraries(T2T_UdpProducerConsumer_UdpUtilsSync_Bytes_TEST PRIVATE ne
 #   UpdConsumeOne<>
 #   UdpSend<>
 ################################################################
-add_executable(T2T_UdpProducerConsumer_TempateFunctions_TEST  teststructs.h catch.hpp T2T-UdpProducerConsumer-TemplateFunction-TEST.cpp)
-target_include_directories( T2T_UdpProducerConsumer_TempateFunctions_TEST PUBLIC net)
-target_link_libraries ( T2T_UdpProducerConsumer_TempateFunctions_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen )
+add_executable(TEST-T2T-UDP-ProducerConsumer-TemplateFunctions  teststructs.h catch.hpp TEST-T2T-UDP-ProducerConsumer-TemplateFunction.cpp)
+target_include_directories( TEST-T2T-UDP-ProducerConsumer-TemplateFunctions PUBLIC net)
+target_link_libraries ( TEST-T2T-UDP-ProducerConsumer-TemplateFunctions PRIVATE net Eigen3::Eigen )
 
 
-# Request Reply Section
+ 
 
 ################################################################
 # Test UpdUtilsSync Request-Response Thread to Thread
@@ -75,9 +86,9 @@ target_link_libraries ( T2T_UdpProducerConsumer_TempateFunctions_TEST PRIVATE ne
 # server/service thread
 # void ReceiveReply(std::string host, unsigned short port ,  REQ_REPLY_HANDLER handler);
 ################################################################
-add_executable(T2T-RequestReply-UdpUtilsSync-TEST  teststructs.h catch.hpp T2T-UdpRequestReply-UdpUtilsSync-TEST.cpp)
-target_include_directories(T2T-RequestReply-UdpUtilsSync-TEST PUBLIC net)
-target_link_libraries(T2T-RequestReply-UdpUtilsSync-TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+add_executable(TEST-T2T-UDP-RequestReply-UdpUtils  teststructs.h catch.hpp TEST-T2T-UDP-RequestReply-UdpUtils.cpp)
+target_include_directories(TEST-T2T-UDP-RequestReply-UdpUtils PUBLIC net)
+target_link_libraries(TEST-T2T-UDP-RequestReply-UdpUtils PRIVATE net Eigen3::Eigen  )
  
 
 ################################################################
@@ -86,26 +97,22 @@ target_link_libraries(T2T-RequestReply-UdpUtilsSync-TEST PRIVATE net ${OpenCV_LI
 # UdpClient<*,*>
 #
 ################################################################
-add_executable(T2T_UdpRequestReply_TemplateFunction_TEST  teststructs.h catch.hpp T2T-UdpRequestReply-TemplateFunction-TEST.cpp)
-target_include_directories(T2T_UdpRequestReply_TemplateFunction_TEST PUBLIC net)
-target_link_libraries(T2T_UdpRequestReply_TemplateFunction_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+add_executable(TEST-T2T-UDP-RequestReply-TemplateFunction  teststructs.h catch.hpp TEST-T2T-UDP-RequestReply-TemplateFunction.cpp)
+target_include_directories(TEST-T2T-UDP-RequestReply-TemplateFunction PUBLIC net)
+target_link_libraries(TEST-T2T-UDP-RequestReply-TemplateFunction PRIVATE net  Eigen3::Eigen  )
 
 
-################################################################
-# Test UDP Request-Response AsyncThread 2 Thread
-# 
-# 
-#
-################################################################
-add_executable(T2T_UdpRequestReplyAsync_TEST  teststructs.h catch.hpp T2T-RequestReplyAsync-TEST.cpp)
-target_include_directories(T2T_UdpRequestReplyAsync_TEST PUBLIC net)
-target_link_libraries(T2T_UdpRequestReplyAsync_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
+add_executable(TEST-UdpUtils-TEST  teststructs.h catch.hpp TEST-UdpUtils.cpp)
+target_include_directories(TEST-UdpUtils-TEST PUBLIC net)
+target_link_libraries(TEST-UdpUtils-TEST PRIVATE net Eigen3::Eigen  )
 
 
+add_executable(TEST-T2T-UDP-ClientServer-TemplateClass  teststructs.h catch.hpp TEST-T2T-UDP-ClientServer-TemplateClass.cpp)
+target_include_directories(TEST-T2T-UDP-ClientServer-TemplateClass PUBLIC net)
+target_link_libraries(TEST-T2T-UDP-ClientServer-TemplateClass PRIVATE net Eigen3::Eigen  )
 
+add_executable(TEST-T2T-TCP-ClientServer TEST-T2T-TCP-ClientServer.cpp)
+target_include_directories( TEST-T2T-TCP-ClientServer PUBLIC net Eigen3::Eigen )
+target_link_libraries(TEST-T2T-TCP-ClientServer PRIVATE net  Eigen3::Eigen   ${OpenCV_LIBS})
 
-add_executable(UdpUtils_TEST  teststructs.h catch.hpp UdpUtils-TEST.cpp)
-target_include_directories(UdpUtils_TEST PUBLIC net)
-target_link_libraries(UdpUtils_TEST PRIVATE net ${OpenCV_LIBS} Eigen3::Eigen  )
-
-
+ 

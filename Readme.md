@@ -2,6 +2,10 @@
 
 This is designed to be a general UPD api. This project provides a set of tools to allow integration between process and hosts. We give following functionality:
 
+
+- sudo apt-get install libpthread-stubs0-dev
+
+
 ### Producer/Comsumer
 - Send UPD message
   - (Producer)
@@ -31,7 +35,6 @@ This is designed to be a general UPD api. This project provides a set of tools t
 
 ### Dependencies
 - boost::asio
-- ams
 
 
 ### Build
@@ -44,7 +47,7 @@ linux
 
 ```
 
-
+### Example
 ```c++
     // TODO: maybe shared_ptr
     template <class SomeStruct>
@@ -83,57 +86,7 @@ linux
         REQUIRE(test._u32 == test2->_u32);
     }
 ```
-What are we doing:
-- What are adding a simulation by mocking out the camera system.
-- The image mock will conform to the received instruction
-
-Requirements:
-- We will consume Truth Data "UDP Consume and Process Mode".
-- We will consume serialized struct
-- We will provide the mocked images through  "Udp Service Mode".
-- Must perform better then 1HZ
-- Must have flexibility in serialized struct 
-
-Inferred Tasks
-- We will consume truth message via UPD 
-- We will forward truth data will need to be forward to our image generation system assumed SGS
-- The message will be forwarded to SGS via "Fire and Forget mode" or Direct API call
-- SGS 's constructed image is relay by "Fire and Forget mode" the to "Mock Service"
-- The Mock Service will use "UDP Consume and Process Mode" to receive GSG images
-- We will use docker
-  - SGS 
-  - Mock Image Service 
-
-Environment
-- linux x64
-- docker/podman
-- boost and boost asio
-we will be mocking multiple cameras.
-
-Notes:
-- Images Gray Scale Images at 2592 x 1444
-- Server queues image in CircularBuffer 
-- Configurable depth N
-- Image queries are by timestamp processed from above CircularBuffer
  
-### RISKS
-
-- The image is larger han the maximal allowed UPD payload
-
-#### Application FLow
-
-- consumer truth
-- create image
-- image sender
-- image receiver
-- persistence in memory circular queue
-- image service
-
-![GNCMOCK](./doc/SPP.png)
- 
-
-### UDP
-
 UDP is connectionless: 
 - Means make no efforts to validate delivery ... etc
 ---
@@ -322,4 +275,24 @@ The same structure, when packed, will appear in memory as something like:
 - A value of 0 means black, and the maximum value means white.
 - Characters from a "#" to the next end-of-line are ignored (comments).
 
- 
+
+
+---
+
+### GigE Vision
+- Interface standard high-performance cameras. 
+- Provides a framework for 
+  - transmitting high-speed video
+  - related control data over Ethernet networks.
+- require the payment of annual licensing fees 
+
+### GigE Vision has four main elements:
+
+- GigE Vision Control Protocol (GVCP)—Runs on the UDP protocol. 
+- The standard defines how to control and configure devices. 
+- Specifies stream channels and the mechanisms of sending image and configuration data between cameras and computers.
+- GigE Vision Stream Protocol (GVSP)—Runs on the UDP protocol. 
+- Covers the definition of data types and the ways images can be transferred via GigE.
+- GigE Device Discovery Mechanism—Provides mechanisms to obtain IP addresses.
+- XML description file based on a schema defined by the European Machine Vision Association's GenICam  
+

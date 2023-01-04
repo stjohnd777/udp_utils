@@ -13,28 +13,35 @@
 
 #include <boost/circular_buffer.hpp>
 
+
 using namespace std;
 using namespace lm::spp;
 using namespace std::chrono;
 
 
-PACK( struct Request
-{
-    uint32_t seq;
-    uint64_t gpsTime;
-    uint8_t cameraId;
+PACK(
+struct Request {
+    uint32_t seq =0;
+    uint64_t gpsTime = 0;
+    uint8_t cameraId = 0;
+
 });
 
-PACK( struct Response
-{
+PACK(
+struct Response {
+    //Response() :seq(0),gpsTime(0),cameraId(0),retCode(0){}
     uint32_t seq;
     uint64_t gpsTime;
     uint8_t cameraId;
     int retCode;
-    //uint8_t matrix[600][800];
 });
 
 
+// minimal abstraction client
+// we are the UDP cleint awating a response
+// we send byes
+// we recieve bytes
+// the conjugate class is server.cpp
 int main() {
 
     try {
@@ -42,23 +49,24 @@ int main() {
         unsigned short port = 7767;
         int COUNT = 100;
         UdpUtils *udpUtil = new UdpUtils();
+
         for (int i = 0; i < COUNT; i++) {
- 
+
             Request req;
             req.seq = i;
             req.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-            req.cameraId = 1;
-            auto bytes = lm::spp::Serialize(req);
-            
-            auto t = udpUtil->RequestReply(host, port, bytes, sizeof(Request));
+            auto send_bytes = lm::spp::Serialize(req);
+
+            auto t = udpUtil->RequestReply(host, port, send_bytes, sizeof(Request));
+
             auto len = std::get<0>(t);
             auto pChar = std::get<1>(t);
-            Response* res = lm::spp::DeSerialize<Response>(pChar.get());
+            Response *res = lm::spp::DeSerialize<Response>(pChar.get());
 
         }
-        cout << "cleaning up" << endl;
+
         delete udpUtil;
-    }catch (std::exception& ex){
+    } catch (std::exception &ex) {
         cerr << ex.what() << endl;
     }
 

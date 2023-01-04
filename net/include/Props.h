@@ -3,6 +3,9 @@
 
 #include <string>
 #include <sstream>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ini_parser.hpp>
+
 
 namespace lm {
 
@@ -11,19 +14,28 @@ namespace lm {
         class Props {
 
         public:
-            static std::string getEnvironmentVarAsString(const std::string name);
 
-            static int getEnvironmentVarAsInt(const std::string name);
-
-        public:
             Props();
 
-            Props(std::string propsFile) {
+            Props(std::string propsFile);
 
-            };
+            std::string getEnvVarAsString(const std::string name);
+
+            int getEnvVarAsInt(const std::string name);
+
+            std::string getIniPropertyAsString(std::string sectionProp);
 
             virtual ~Props();
+
+        private:
+
+            boost::property_tree::ptree pt;
+
+
         };
+
+ 
+
     }
 }
 

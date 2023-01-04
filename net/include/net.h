@@ -5,7 +5,6 @@
 #pragma once
 
 #include "macro.h"
-#include "amssgstypes.h"
 #include "utils.h"
 #include "udp/udp_utils.h"
 #include "udp/UdpConsumer.h"
@@ -15,7 +14,13 @@
 #include "udp/UpdReceiveReply.h"
 #include "udp/UdpClient.h"
 #include "udp/UdpServer.h"
+#include "Props.h"
 #include "RandomString.h"
 #include "TimeMetric.h"
+
+#include "tcp/SyncTCPServer.h"
+#include "tcp/SyncTcpClient.h"
+
+#include "udp/UdpConsumeOne.h"
  
 

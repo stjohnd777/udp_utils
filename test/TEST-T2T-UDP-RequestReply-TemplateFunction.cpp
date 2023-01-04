@@ -32,9 +32,9 @@ TEST_CASE( "UdpRequestReplyTemplateFunction-Test", "1" ) {
  
     bool running = true;
     std::thread t([&]() {
-        UpdRecieveReplyOne<Request, Response>(host, port, provider);
+        UpdReceiveReplyOne<Request, Response>(host, port, provider);
         while (running) {
-            UpdRecieveReplyOne<Request,Response>(host,port,provider);
+            UpdReceiveReplyOne<Request,Response>(host,port,provider);
         }
      });
 

@@ -21,11 +21,11 @@ using namespace lm::spp;
 using namespace std::chrono;
 
 /*
-* Producer/Comsumer
+* Producer/Consumer
 *
 * TEST sending a bytes
 *
-* Comsumer and Producer in seperate threads.
+* Consumer and Producer in separate threads.
 */
 TEST_CASE("T2T-ProducerConsumer", "With Bytes") {
 

@@ -20,7 +20,8 @@ using namespace std::chrono;
 std::string host = "127.0.0.1";
 unsigned short port = 7767;
 
-TEST_CASE( "UdpSendTempate-Test", "1" ) {
+TEST_CASE( "UdpSendTemplate-Test", "Producer-Consumer" ) {
+    
     REQUIRE( true == true );
 
     std::vector<Request> vsent;
@@ -29,10 +30,11 @@ TEST_CASE( "UdpSendTempate-Test", "1" ) {
     bool running = true;
     std::thread t([&]() {
         while (running) {
+
             UpdConsumeOne<Request>(host, port, [&](Request* r) {
-                // consider shared_ptr
+                // TODO: consider shared_ptr
                 vrecv.push_back(r);
-                cout << "Conumer Request[" << r->seq << "," << r->gpsTime << "," << r->cameraId << "]" << endl;
+                cout << "ConsumeOne Request[" << r->seq << "," << r->gpsTime << "," << r->cameraId << "]" << endl;
                 if (r->seq == 9) {
                     running = false;
                 }
@@ -48,7 +50,7 @@ TEST_CASE( "UdpSendTempate-Test", "1" ) {
         req.cameraId = i;
         UdpSend<Request>(host,port,req);
         vsent.push_back(req); // creates copy of object
-        cout << "Send Request[" << req.seq << "," << req.gpsTime << "," << req.cameraId << "]" << endl;
+        cout << "Send One Request[" << req.seq << "," << req.gpsTime << "," << req.cameraId << "]" << endl;
         std::this_thread::sleep_for(1000ms);
     }
 
