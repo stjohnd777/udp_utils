@@ -40,7 +40,7 @@ int main() {
         auto t = udpUtil.ServerReceiveNoReply(host, port);
         auto len = get < 0 > (t);
         auto pChar = std::get<1>(t);
-        Request *req = lm::spp::DeSerialize<Request>(pChar.get());
+        Request *req = DeSerialize<Request>(pChar.get());
         cout << "receive:" << req->seq << ":" << req->gpsTime << ":" << req->cameraId << endl;
 
     }

@@ -55,7 +55,7 @@ int main() {
 
         // notice the server is implemented by suppling a handler with the signature below
         // lambda here to keep the code tight
-        udpUtil.ReceiveReply(host, port, [&](std::tuple<size_t, std::shared_ptr<char[]>> req) {
+        udpUtil.ReceiveReply(host, port, [&](std::tuple<size_t, std::shared_ptr<uint8_t[]>> req) {
 
             // Get request as bytes and number of bytes (length)
             auto len = std::get<0>(req);
@@ -74,7 +74,7 @@ int main() {
 
             auto bytesOut = Serialize<Response>(response);
             size_t size_bytes_out = sizeof(Response);
-            std::shared_ptr<char[]> sp(new char[size_bytes_out]);
+            std::shared_ptr<uint8_t[]> sp(new uint8_t[size_bytes_out]);
             memcpy(sp.get(), bytesOut, size_bytes_out);
 
             // sending byes back the the endpoint that made the request
