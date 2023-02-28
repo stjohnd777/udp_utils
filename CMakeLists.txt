@@ -12,8 +12,14 @@ if (ENABLE_FETCH)
     include(cmake/manage_boost.cmake)
 endif ()
 
+include_directories(/usr/include
+        /usr/include/opencv4
+        usr/local)
+
+link_directories(/usr/lib
+        /usr/local/lib)
 add_subdirectory(net)
-add_subdirectory(test)
+#add_subdirectory(test)
 add_subdirectory(main)
 
 

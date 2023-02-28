@@ -31,18 +31,7 @@ SomeStruct *DeSerialize(uint8_t *src) {
     return s;
 }
 
-boost::asio::ip::udp::endpoint GetUdpEndpoint(std::string host, unsigned short port) {
-    boost::system::error_code ec;
-    // checks whether argument contains a valid IPv4 or IPv6 address then
-    // instantiates a corresponding v4 || v6
-    auto ip_address = boost::asio::ip::address::from_string(host, ec);
-    if (ec.value() != 0) {
-        std::cout << ec.value() << std::endl;
-        throw ec.value();
-    }
-    auto ep = boost::asio::ip::udp::endpoint(ip_address, port);
-    return ep;
-}
+boost::asio::ip::udp::endpoint GetUdpEndpoint(std::string host, unsigned short port);
 
 
 class UdpUtils {

@@ -10,15 +10,14 @@
 #include <chrono>
 #include <tuple>
 #include <memory>
-#include <boost/array.hpp>
+
 
 
 using namespace std;
  
 using namespace std::chrono;
 
-// packing structures to ensure compiler does not padd on 
-// even boundires to ensure the serialized data is only data
+
 PACK(struct Request
              {
                  uint32_t seq;
@@ -35,15 +34,7 @@ PACK(struct Response
                  //uint8_t matrix[600][800];
              });
 
-// Server part of Client/Server Model
-// client.cpp is conjugate to the class
-// mode here is process to process of host to host
 
-// minimal abstraction server
-// we are the UDP service here
-// we recieve byes
-// we reply to requester
-// we send bytes
 int main() {
 
     bool isRunning = true;
@@ -77,7 +68,7 @@ int main() {
             std::shared_ptr<uint8_t[]> sp(new uint8_t[size_bytes_out]);
             memcpy(sp.get(), bytesOut, size_bytes_out);
 
-            // sending byes back the the endpoint that made the request
+            // sending byes back the endpoint that made the request
             auto res = std::make_tuple(size_bytes_out, sp);
             return res;
         });

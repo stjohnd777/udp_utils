@@ -10,25 +10,21 @@
 #include <tuple>
 
 
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+
 using namespace std;
- 
 
-PACK(struct Request
-             {
-                 uint32_t seq;
-                 uint64_t gpsTime;
-                 uint8_t cameraId;
-             });
+#define ROWS 1080
+#define COLS 1920
+#define DEPTH 1
 
-PACK(struct Response
-             {
-                 uint32_t seq;
-                 uint64_t gpsTime;
-                 uint8_t cameraId;
-                 int retCode;
-                 //uint8_t matrix[600][800];
-             });
-
+struct Frame {
+    uint32_t seq;
+    double gpsTime;
+    uint8_t cameraId;
+    char img[ROWS*COLS*DEPTH];
+};
 
 int main() {
 
@@ -36,13 +32,15 @@ int main() {
     std::string host = "127.0.0.1";
     unsigned short port = 7767;
     UdpUtils udpUtil;
+
     while (isRunning) {
         auto t = udpUtil.ServerReceiveNoReply(host, port);
         auto len = get < 0 > (t);
         auto pChar = std::get<1>(t);
-        Request *req = DeSerialize<Request>(pChar.get());
-        cout << "receive:" << req->seq << ":" << req->gpsTime << ":" << req->cameraId << endl;
-
+        Frame *req = DeSerialize<Frame>(pChar.get());
+        cv::Mat m(ROWS,COLS,DEPTH);
+        m.data = reinterpret_cast<uchar *>(req->img);
+        cv::imshow("streamed",m);
     }
 
 }

@@ -3,7 +3,6 @@ project(test)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(Eigen3 CONFIG REQUIRED)
-
 find_package(OpenCV CONFIG REQUIRED)
 
 
