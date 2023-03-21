@@ -11,20 +11,6 @@
 using namespace std;
 using namespace std::chrono;
 
-PACK(struct Request
-{
-    uint32_t seq;
-    uint64_t gpsTime;
-    uint8_t cameraId;
-});
-
-PACK(struct Response
-{
-    uint32_t seq;
-    uint64_t gpsTime;
-    uint8_t cameraId;
-    int retCode;
-});
 
 
 int main() {

@@ -18,7 +18,7 @@ add_library(
         include/UdpProducer.h
 
         src/UdpUtils.cpp
-   )
+        include/SyncTcpServer.h include/SyncTcpClient.h)
 
 target_include_directories(
         ${PROJECT_NAME}

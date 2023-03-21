@@ -45,3 +45,15 @@ add_executable(MAIN-UDP-Client-Class UdpClient.cpp)
 target_include_directories( MAIN-UDP-Client-Class PUBLIC net Eigen3::Eigen )
 target_link_libraries(MAIN-UDP-Client-Class PRIVATE net  Eigen3::Eigen Threads::Threads)
 
+
+##################################################################################################
+
+add_executable(ImageClient TcpImageClient.cpp)
+target_include_directories( ImageClient PUBLIC net Eigen3::Eigen )
+target_link_libraries(ImageClient PRIVATE net  Eigen3::Eigen Threads::Threads ${OpenCV_LIBS})
+
+
+add_executable(ImageServer TcpImageServer.cpp)
+target_include_directories( ImageServer PUBLIC net Eigen3::Eigen )
+target_link_libraries(ImageServer PRIVATE net  Eigen3::Eigen Threads::Threads ${OpenCV_LIBS})
+

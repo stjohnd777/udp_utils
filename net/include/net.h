@@ -11,8 +11,33 @@
 #include "UdpProducer.h"
 #include "UdpClient.h"
 #include "UdpServer.h"
+#include "SyncTcpClient.h"
+#include "SyncTcpServer.h"
 
 
+struct Frame {
+    uint32_t seq;
+    double gpsTime;
+    uint8_t cameraId;
+    char img[HEIGHT * WIDTH * CHANNEL_DEPTH];
+};
 
+
+PACK(
+        struct Request {
+            uint32_t seq = 0;
+            uint64_t gpsTime = 0;
+            uint8_t cameraId = 0;
+
+        });
+
+PACK(
+        struct Response {
+            //Response() :seq(0),gpsTime(0),cameraId(0),retCode(0){}
+            uint32_t seq;
+            uint64_t gpsTime;
+            uint8_t cameraId;
+            int retCode;
+        });
  
 

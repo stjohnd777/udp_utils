@@ -12,25 +12,11 @@
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/features2d.hpp>
-#include <opencv2/videoio.hpp>
 
 using namespace std;
- 
+
 using namespace std::chrono;
 
-#define ROWS 1080
-#define COLS 1920
-#define DEPTH 1
-
-struct Frame {
-    uint32_t seq;
-    double gpsTime;
-    uint8_t cameraId;
-    char img[ROWS*COLS*DEPTH];
-};
 
 int main() {
 
@@ -41,14 +27,14 @@ int main() {
         UdpUtils *udpUtil = new UdpUtils();
         for (int i = 0; i < COUNT; i++) {
 
-            Frame aFrame ;
+            Frame aFrame;
             aFrame.seq = i++;
-            aFrame.gpsTime = duration_cast < milliseconds> (system_clock::now().time_since_epoch()).count();
+            aFrame.gpsTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 
-            string imageSeed ="/home/overman/dev/github/_my/udp_utils/main/data/ori.jpg";
+            string imageSeed = "/home/overman/dev/github/_my/udp_utils/main/data/ori.jpg";
             cv::Mat in = imread(imageSeed, cv::IMREAD_GRAYSCALE);
 
-            memcpy(aFrame.img ,in.data,ROWS*COLS*DEPTH);
+            memcpy(aFrame.img, in.data, WIDTH * HEIGHT * CHANNEL_DEPTH);
 
 
             auto bytes = Serialize(aFrame);

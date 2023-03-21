@@ -3,28 +3,14 @@
 // 0xffff - (sizeof(IP Header) + sizeof(UDP Header)) = 65535 - (20 + 8) = 65507
 
 #define MAX_DATAGRAM 65507
-#define WIDTH   2672
-#define HEIGHT  1952
-#define CHANNEL 2
-#define LEN     WIDTH*HEIGHT*CHANNEL
+#define WIDTH   1920
+#define HEIGHT  1080
+#define CHANNEL_DEPTH 1
+//#define COLS 1920
+//#define ROWS 1089
+//#define DEPTH 1
 
-#define ATTRV(varType, varName, funName, v)\
-    protected: varType varName = v ;\
-    public: virtual varType get##funName(void) const {\
-        return varName;\
-    }\
-    public: virtual void set##funName(varType var){\
-        varName = var;\
-    }\
 
-#define ATTR(varType, varName, funName)\
-    protected: varType varName ;\
-    public: virtual varType get##funName(void) const {\
-        return varName;\
-    }\
-    public: virtual void set##funName(varType var){\
-        varName = var;\
-    }\
 
 #ifdef __GNUC__
 #define PACK( __Declaration__ ) __Declaration__ __attribute__((__packed__))

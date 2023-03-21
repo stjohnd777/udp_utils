@@ -19,22 +19,7 @@ using namespace std;
 using namespace std::chrono;
 
 
-PACK(
-struct Request {
-    uint32_t seq =0;
-    uint64_t gpsTime = 0;
-    uint8_t cameraId = 0;
 
-});
-
-PACK(
-struct Response {
-    //Response() :seq(0),gpsTime(0),cameraId(0),retCode(0){}
-    uint32_t seq;
-    uint64_t gpsTime;
-    uint8_t cameraId;
-    int retCode;
-});
 
 
 // minimal abstraction client

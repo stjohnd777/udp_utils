@@ -15,20 +15,6 @@ using namespace std;
 
 using namespace std::chrono;
 
-PACK(struct Request
-             {
-                 uint32_t seq;
-                 uint64_t gpsTime;
-                 uint8_t cameraId;
-             });
-
-PACK(struct Response
-             {
-                 uint32_t seq;
-                 uint64_t gpsTime;
-                 uint8_t cameraId;
-                 int retCode;
-             });
 
 // Server part of Client/Server Model
 // client_class.cpp is conjugate to the class

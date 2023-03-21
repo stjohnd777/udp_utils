@@ -15,16 +15,6 @@
 
 using namespace std;
 
-#define ROWS 1080
-#define COLS 1920
-#define DEPTH 1
-
-struct Frame {
-    uint32_t seq;
-    double gpsTime;
-    uint8_t cameraId;
-    char img[ROWS*COLS*DEPTH];
-};
 
 int main() {
 
@@ -38,7 +28,7 @@ int main() {
         auto len = get < 0 > (t);
         auto pChar = std::get<1>(t);
         Frame *req = DeSerialize<Frame>(pChar.get());
-        cv::Mat m(ROWS,COLS,DEPTH);
+        cv::Mat m(HEIGHT,WIDTH,CHANNEL_DEPTH);
         m.data = reinterpret_cast<uchar *>(req->img);
         cv::imshow("streamed",m);
     }
