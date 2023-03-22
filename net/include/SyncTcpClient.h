@@ -21,7 +21,9 @@ public:
             unsigned short port)
             : m_ep(asio::ip::address::from_string(host), port),
               m_sock(m_ios) {
+        cout << "SyncTcpClient() m_sock.open()" << endl;
         m_sock.open(m_ep.protocol());
+        cout << "SyncTcpClient() m_sock.connect()" << endl;
         m_sock.connect(m_ep);
     }
 
@@ -33,6 +35,7 @@ public:
     };
 
     virtual ~SyncTcpClient() {
+        cout << "~SyncTcpClient() " << endl;
         close();
     }
 
@@ -67,8 +70,9 @@ private:
     }
 
     void close() {
-        m_sock.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
-        m_sock.close();
+        cout << "SyncTcpClient::close()" << endl;
+//        m_sock.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
+//        m_sock.close();
     }
 
 private:
