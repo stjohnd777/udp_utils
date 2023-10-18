@@ -12,9 +12,9 @@ using namespace cv;
 
 int main() {
 
-    //const std::string host = "192.168.1.12";
-    const std::string host = "127.0.0.1";
-    const unsigned short port = 7767;
+    const std::string host = "192.168.1.13";
+    //const std::string host = "127.0.0.1";
+    const unsigned short port = 8080;
     int cameraId = 0;
 
     int height = 720;

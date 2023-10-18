@@ -33,7 +33,6 @@ PACK(
 
 PACK(
         struct Response {
-            //Response() :seq(0),gpsTime(0),cameraId(0),retCode(0){}
             uint32_t seq;
             uint64_t gpsTime;
             uint8_t cameraId;

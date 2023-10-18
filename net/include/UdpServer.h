@@ -16,26 +16,45 @@ public:
 
         uint8_t recv_buf[sizeof(Response)];
         udp::endpoint remote_endpoint;
+        cout << "Server Blocking Read " << endl;
         std::size_t bytes_received = socket.receive_from(buffer(recv_buf), remote_endpoint);
+        cout << "Server Received Request " << endl;
+        cout << "Received: " << bytes_received << endl;
 
-        uint8_t* p = new uint8_t[bytes_received];
-        memcpy(p, recv_buf, bytes_received);
-        Request* req = DeSerialize<Request>(p);
+        Request* req = DeSerialize<Request>(recv_buf);
 
         Response* res = handler(req);
-        uint8_t* resBytes = Serialize<Response>(*res);
+        cout << "Server Computed Response: " << endl;
 
-        auto size_bytes_response = sizeof(Response);
+//        size_t size = sizeof(Response);
+//        uint8_t *p = (uint8_t *) res;
 
         boost::system::error_code ignored_error;
-        socket.send_to(buffer(resBytes,size_bytes_response), remote_endpoint, 0, ignored_error);
+        socket.send_to(buffer( (uint8_t *)res, sizeof(Response) ), remote_endpoint, 0, ignored_error);
+        cout << "Server Sent Response: " << endl;
+        cout << "ignored_error:" << ignored_error << endl;
+
+//        cout << "delete res" << endl;
+//        delete res;
+
+//        cout << "socket.shutdown" << endl;
+//        socket.shutdown(boost::asio::socket_base::shutdown_both);
+//        cout << "socket.close" << endl;
+//        socket.close();
     }
 
     thread* Start(std::function<Response *(Request *)> handler) {
         return new thread([&](){
             m_IsRunning = true;
             while (m_IsRunning) {
-                ReceiveReply(handler);
+                try {
+                    cout << "Server Listening" << endl;
+                    ReceiveReply(handler);
+                    cout << "Server Processed Request" << endl;
+                }catch(std::exception& e){
+                    cout << "ERROR:ReceiveReply: " << e.what() << endl;
+
+                }
             }
         });
     }

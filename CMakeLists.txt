@@ -1,5 +1,4 @@
-
-project(lm_upd)
+project(udp_utils)
 
 cmake_minimum_required(VERSION 3.10)
 

@@ -288,3 +288,6 @@ The same structure, when packed, will appear in memory as something like:
 - GigE Device Discovery Mechanism—Provides mechanisms to obtain IP addresses.
 - XML description file based on a schema defined by the European Machine Vision Association's GenICam  
 
+
+
+-DCMAKE_TOOLCHAIN_FILE=/Users/overman/dev/github/vcpkg/scripts/buildsystems/vcpkg.cmake
